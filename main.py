@@ -7,9 +7,8 @@ class sensi:
     def calcul_new_sens(self):
         return self.old_sensi * self.old_dpi / self.new_sensi
 
-    @staticmethod
-    def affich_new_sensi(x):
-        print(f'New sens = {round(x, 2)}')
+    def affich_new_sensi(self):
+        print(f'New sens = {round(self.calcul_new_sens(), 2)}')
         print('-' * 30)
 
 
@@ -19,9 +18,7 @@ def main():
             a = int(input('current dpi: '))
             b = float(input('current sens: '))
             c = int(input('New dpi: '))
-            old_sensitivity = sensi(b, a, c)
-            new_sensitivity = old_sensitivity.calcul_new_sens()
-            old_sensitivity.affich_new_sensi(new_sensitivity)
+            sensi(b,a,c).affich_new_sensi()
         except ValueError:
             print('un nombre!')
 
